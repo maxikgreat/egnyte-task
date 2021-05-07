@@ -2,14 +2,41 @@
   "name": "egnyte-task",
   "version": "1.0.0",
   "description": "Recruitment task for Egnyte",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=development webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Maksym Vasylenko <maximvasylenko228322@gmail.com>",
   "license": "ISC",
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
-    "webpack": "^5.36.2",
-    "webpack-cli": "^4.7.0"
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "*",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "eslint": "^7.24.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-webpack-plugin": "^2.5.4",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.5.0",
+    "style-loader": "^2.0.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.34.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "normalize.css": "^8.0.1"
   }
 }
