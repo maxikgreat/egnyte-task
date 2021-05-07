@@ -1,0 +1,15 @@
+{
+  "name": "egnyte-task",
+  "version": "1.0.0",
+  "description": "Recruitment task for Egnyte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maksym Vasylenko <maximvasylenko228322@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
