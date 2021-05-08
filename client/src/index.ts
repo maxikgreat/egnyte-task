@@ -10,8 +10,16 @@ interface Checkbox {
 
 let socket: SocketIOClient.Socket | null = null;
 
+const showError = (checkboxContainer: Element, message: string): void => {
+  checkboxContainer.innerHTML = message;
+};
+
 const openWsConnection = (checkboxContainer: Element): void => {
   socket = io('http://localhost:3001');
+
+  socket.on('connect_error', (err: {message: string}) => {
+    showError(checkboxContainer, err.message);
+  });
 
   socket.on('checkbox-all', (data: Checkbox[]) => {
     let checkboxes: string = '';
@@ -46,26 +54,37 @@ const openWsConnection = (checkboxContainer: Element): void => {
 
     if (!input) return;
 
-    console.log(input);
     if (value) {
       input.setAttribute('checked', 'checked');
     } else {
       input.removeAttribute('checked');
     }
   });
+
+  socket.on('disconnect', () => {
+    console.log('disconnect');
+  });
 };
 
-const closeWsConnection = (): void => {
+const closeWsConnection = (checkboxContainer?: Element, message?: string): void => {
   if (!socket) return;
   socket.close();
+
+  if (checkboxContainer && message) {
+    showError(checkboxContainer, message);
+  }
 };
+
 
 window.onload = (): void => {
   const checkboxContainer = document.querySelector('section.checkbox__container');
 
   if (!checkboxContainer) return;
-
-  openWsConnection(checkboxContainer);
+  try {
+    openWsConnection(checkboxContainer);
+  } catch (err) {
+    closeWsConnection(checkboxContainer, err.message);
+  }
 };
 
 window.onclose = (): void => {
