@@ -54,7 +54,6 @@ export class CheckboxGateway implements OnGatewayConnection {
   @SubscribeMessage('checkbox-changed')
   async handleCheckboxValue(@MessageBody() { id, value }: Checkbox) {
     const data = await this.changeCheckbox(id, value);
-    console.log('changed', data);
     this.server.emit('checkbox-changed', data);
   }
 }
