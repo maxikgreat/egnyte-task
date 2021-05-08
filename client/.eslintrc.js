@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  root: false,
   extends: [
     'google',
   ],
@@ -17,6 +18,7 @@ module.exports = {
   rules: {
     'quote-props': ['error', 'as-needed'],
     'require-jsdoc': 'off',
+    'max-len': 'off',
   },
 };
 

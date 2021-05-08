@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CheckboxGateway } from './checkbox.gateway';
 
 @Module({
-  imports: [],
+  imports: [HttpModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, CheckboxGateway],
 })
 export class AppModule {}

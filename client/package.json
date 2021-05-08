@@ -1,5 +1,6 @@
 {
-  "name": "egnyte-task",
+  "name": "egnyte-task-client",
+  "private": true,
   "version": "1.0.0",
   "description": "Recruitment task for Egnyte",
   "main": "webpack.config.js",
@@ -14,6 +15,7 @@
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-typescript": "^7.13.0",
+    "@types/socket.io-client": "^1.4.36",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
@@ -38,6 +40,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "socket.io-client": "^2.3.0"
   }
 }
